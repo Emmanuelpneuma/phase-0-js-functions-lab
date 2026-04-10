@@ -1,27 +1,21 @@
-function createLoginTracker(userInfo) {
-  let attemptCount = 0;
-
-  return (passwordAttempt) => {
-    attemptCount++;
-
-    if (attemptCount > 3) {
-      return "Account locked due to too many failed login attempts";
-    }
-
-    if (passwordAttempt === userInfo.password) {
-      return "Login successful";
-    }
-
-    return `Attempt ${attemptCount}: Login failed`;
-  };
+function calculateTax(amount) {
+  return amount * 0.1;
 }
 
-module.exports = {
-  ...(typeof createLoginTracker !== 'undefined' && { createLoginTracker })
-};
+function convertToUpperCase(text) {
+  return text.toUpperCase();
+}
 
+function findMaximum(num1, num2) {
+  return num1 >= num2 ? num1 : num2;
+}
 
+function isPalindrome(word) {
+  return word === word.split('').reverse().join('');
+}
 
+function calculateDiscountedPrice(originalPrice, discountPercentage) {
+  return originalPrice - (originalPrice * discountPercentage / 100);
+}
 
-// This is required for the test to function properly  
 module.exports = { calculateTax, convertToUpperCase, findMaximum, isPalindrome, calculateDiscountedPrice };
